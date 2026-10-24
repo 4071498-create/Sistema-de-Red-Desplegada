@@ -26,5 +26,7 @@
         
         <!-- Aquí se declararán más adelante las clases mapeadas/entidades -->
         <mapping class="com.mycompany.red_desplegada.Nave"/>
+        <mapping class="com.mycompany.red_desplegada.Planeta"/>
+        
     </session-factory>
 </hibernate-configuration>

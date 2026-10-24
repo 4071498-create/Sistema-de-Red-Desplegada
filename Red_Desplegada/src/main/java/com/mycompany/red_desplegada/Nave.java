@@ -10,6 +10,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import java.io.Serializable;
 
 /**
@@ -38,7 +42,16 @@ public class Nave implements Serializable {
 
     @Column(name = "estado_sistema", nullable = false, length = 20)
     private String estadoSistema;
+    
+    
+    
+    //Para planeta
+    @ManyToOne(fetch = FetchType.LAZY) // LAZY evita cargar el planeta de la BD a menos que se invoque explícitamente
+    @JoinColumn(name = "planeta_id", foreignKey = @ForeignKey(name = "FK_NAVE_PLANETA"))
+    private Planeta planetaOrigen;
 
+    
+    
     // Nota: Dejamos fuera temporalmente 'planeta_origen_id' para explicar 
     // las relaciones @ManyToOne en la siguiente sesión práctica.
 
@@ -69,6 +82,10 @@ public class Nave implements Serializable {
 
     public String getEstadoSistema() { return estadoSistema; }
     public void setEstadoSistema(String estadoSistema) { this.estadoSistema = estadoSistema; }
+    
+    // Getter y Setter de la entidad relacionada
+    public Planeta getPlanetaOrigen() { return planetaOrigen; }
+    public void setPlanetaOrigen(Planeta planetaOrigen) { this.planetaOrigen = planetaOrigen; }
 
     // Sobreescritura útil para las salidas por consola de NetBeans
     @Override
