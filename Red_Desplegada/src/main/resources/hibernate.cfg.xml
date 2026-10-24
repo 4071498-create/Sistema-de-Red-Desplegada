@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- 1. Propiedades de conexión de la Base de Datos -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/death_star</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">1234</property>
+
+        <!-- 2. Dialecto SQL específico para optimizar las consultas a PostgreSQL -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- 3. Propiedades de depuración del desarrollador -->
+        <!-- Muestra por la consola de NetBeans las sentencias SQL que Hibernate genera por detrás -->
+        <property name="show_sql">true</property>
+        <!-- Formatea el código SQL de la consola para que sea legible -->
+        <property name="format_sql">true</property>
+
+        <!-- 4. Estrategia de creación de tablas automático -->
+        <!-- 'update' actualiza la estructura de las tablas existentes sin borrar los datos -->
+        <property name="hbm2ddl.auto">update</property>
+        
+        <!-- Aquí se declararán más adelante las clases mapeadas/entidades -->
+        <mapping class="com.mycompany.red_desplegada.Nave"/>
+    </session-factory>
+</hibernate-configuration>
