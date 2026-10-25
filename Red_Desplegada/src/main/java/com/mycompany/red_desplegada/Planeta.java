@@ -10,12 +10,12 @@ import java.io.Serializable;
 @Entity
 @Table(name = "planetas")
 public class Planeta implements Serializable {
-
+    //Valores de Planeta para las tablas de Postgrade
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "planet_id")
     private int id;
-
+    
     @Column(name = "nombre_planeta", nullable = false, length = 100)
     private String nombrePlaneta;
 
@@ -29,7 +29,7 @@ public class Planeta implements Serializable {
 
     // Constructor obligatorio JPA
     public Planeta() {}
-
+    //Constructor de Planeta
     public Planeta(String nombrePlaneta, String sectorGalactico) {
         this.nombrePlaneta = nombrePlaneta;
         this.sectorGalactico = sectorGalactico;
@@ -52,7 +52,7 @@ public class Planeta implements Serializable {
         this.listaNaves.add(nave);
         nave.setPlanetaOrigen(this); // Sincroniza la clave ajena de forma automática en la Nave
     }
-
+    //ToString personalizado para poder sacarlo con mayor facilidad
     @Override
     public String toString() {
         return "Planeta [ID=" + id + ", Nombre=" + nombrePlaneta + ", Sector=" + sectorGalactico + "]";
