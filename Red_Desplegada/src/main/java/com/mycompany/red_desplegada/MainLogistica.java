@@ -3,6 +3,7 @@ package com.mycompany.red_desplegada;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+
 /**
  * Paso 3: Orquestación del laboratorio (MainLogistica.java).
  * Crea el grafo Planeta -> Naves en memoria, lo persiste desde el padre (cascade)
